@@ -1,0 +1,17 @@
+{
+  "name": "next-redux-persist-monorepo",
+  "repository":"https://github.com/mdlindsey/next-redux-persist",
+  "author": "Dan Lindsey",
+  "scripts": {
+    "tsc": "lerna run tsc",
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "example": "cd example && yarn dev"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
