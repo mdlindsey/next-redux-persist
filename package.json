@@ -6,7 +6,14 @@
     "tsc": "lerna run tsc",
     "test": "lerna run test",
     "build": "lerna run build",
-    "example": "cd example && yarn dev"
+    "example": "cd example && yarn dev",
+    "deploy": "sudo yarn deploy:sync && yarn forever:restart",
+    "deploy:sync": "sudo git pull && sudo yarn install && sudo yarn build",
+    "deploy:run": "sudo yarn forever:stop && sudo yarn forever:purge && sudo yarn forever:start",
+    "forever:restart": "sudo forever restart nextpersistredux",
+    "forever:purge": "sudo rm -rf /root/.forever/nextpersistredux.log",
+    "forever:start": "sudo forever --uid \"nextpersistredux\" start ./node_modules/.bin/next start",
+    "forever:stop": "sudo forever stop nextpersistredux"
   },
   "workspaces": [
     "packages/*"
